@@ -1,0 +1,30 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>DOBT Knowledge Base</title><link rel="stylesheet" href="/styles/based.css"><link rel="stylesheet" href="/styles/style.css"><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="/js/js.js"></script></head><body><div class="navbar"><div class="navbar-internal grid"><div class="navbar-left item lap_six_columns"><a href="/"><img src="/images/dobt_logo.png"><span>DOBT | Knowledge Base</span></a></div><div class="navbar-right item lap_six_columns"><form class="navbar-form"><input type="text" placeholder="Search articles"></form><a href="#">Back to Dashboard &rarr;</a></div></div></div><div class="container"><div class="grid"><div class="sidenav item lap_three_columns"><p style="word-wrap:break-word;">Choose an app: <select id="choose-app"><option value="articles/dashboard" selected>Dashboard</option><option value="articles/screendoor">Screendoor</option></select></p><ul class="toc left_toc"><li><a href="/articles/dashboard/apps.html">Apps</a></li><li><a href="/articles/dashboard/organization_settings.html">Organization Settings</a></li><li><a href="/articles/dashboard/signup_and_login.html">Signup and Login</a></li><li><a href="/articles/dashboard/users.html">Users</a></li></ul><script>$(".toggle_toc").click(function(){
+  //- alert(this.name)
+  if ($(this).children().hasClass('glyphicon-chevron-down')) {
+    $(this).children().removeClass('glyphicon-chevron-down')
+    $(this).children().addClass('glyphicon-chevron-up')
+    $('#'+this.name).hide()
+  }
+  else {
+    $(this).children().removeClass('glyphicon-chevron-up')
+    $(this).children().addClass('glyphicon-chevron-down')
+    $('#'+this.name).show()
+  }
+})</script><div><b>Still need help? </b><div style="text-indent:10px;"><a href="#">Contact us</a></div></div></div><div class="article item lap_nine_columns"><div class="breadcrumbs"><a href="/articles/dashboard">Dashboard</a> &rarr; <a href="/articles/dashboard/signup_and_login.html">Signup and login</a> &rarr; </div><h2 id="signing-up-">Signing up...</h2>
+<h3 id="from-an-existing-organization">From an existing organization</h3>
+<p>If you don&#39;t already have a dobt.co account, you&#39;ll need to ask an administrator from your organization to invite you. Once they do, you&#39;ll be able to create an account by accepting the invite and filling out the basic form.</p>
+<h3 id="with-a-new-organization">With a new organization</h3>
+<p>If you aren&#39;t part of an existing organization, you&#39;ll need to <a href="https://dashboard.dobt.co/organizations/new">sign up as a new organization</a>.</p>
+<h2 id="signing-in">Signing in</h2>
+<p>If you already have a dobt.co account, you can sign in from the <a href="https://dashboard.dobt.co/sign_in">sign in page</a>. You&#39;ll need the email address you signed up with, as well as the password you created.</p>
+<h2 id="forgot-password">Forgot password</h2>
+<p>If you forgot your password, simply click the question mark on the right side of where you would normally enter your password. Then, follow the prompts to reset your password.</p>
+<p><img src="/articles/dashboard/images/screenshot_forgot_password.png" alt="screenshot"></p>
+<hr>
+<h2 id="my-password-isn-t-working">My password isn&#39;t working</h2>
+<p>If your password isn&#39;t working, make sure that you&#39;re signing in with the correct email address and double check that caps lock is off. If it still isn&#39;t working, click the <code>Forgot your password?</code> question mark (see above) to reset your password.</p>
+<h2 id="i-m-having-trouble-resetting-my-password">I&#39;m having trouble resetting my password</h2>
+<p>If you tried to reset your password but still have not received the reset email, confirm that you sent it to the correct email address and that it didn&#39;t get caught in a spam filter. If you still haven&#39;t received the reset email after some time has passed, try contacting an administrator from your organization. If you still can&#39;t sign in and cannot resolve the issue, <a href="/articles/dashboard/contact-page">contact us</a>.</p>
+</div></div><script>document.getElementById('choose-app').onchange = function() {
+  window.location.href = '/' + this.value
+}</script></div></body></html>

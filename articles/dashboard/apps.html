@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>DOBT Knowledge Base</title><link rel="stylesheet" href="/styles/based.css"><link rel="stylesheet" href="/styles/style.css"><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script><script src="/js/js.js"></script></head><body><div class="navbar"><div class="navbar-internal grid"><div class="navbar-left item lap_six_columns"><a href="/"><img src="/images/dobt_logo.png"><span>DOBT | Knowledge Base</span></a></div><div class="navbar-right item lap_six_columns"><form class="navbar-form"><input type="text" placeholder="Search articles"></form><a href="#">Back to Dashboard &rarr;</a></div></div></div><div class="container"><div class="grid"><div class="sidenav item lap_three_columns"><p style="word-wrap:break-word;">Choose an app: <select id="choose-app"><option value="articles/dashboard" selected>Dashboard</option><option value="articles/screendoor">Screendoor</option></select></p><ul class="toc left_toc"><li><a href="/articles/dashboard/apps.html">Apps</a></li><li><a href="/articles/dashboard/organization_settings.html">Organization Settings</a></li><li><a href="/articles/dashboard/signup_and_login.html">Signup and Login</a></li><li><a href="/articles/dashboard/users.html">Users</a></li></ul><script>$(".toggle_toc").click(function(){
+  //- alert(this.name)
+  if ($(this).children().hasClass('glyphicon-chevron-down')) {
+    $(this).children().removeClass('glyphicon-chevron-down')
+    $(this).children().addClass('glyphicon-chevron-up')
+    $('#'+this.name).hide()
+  }
+  else {
+    $(this).children().removeClass('glyphicon-chevron-up')
+    $(this).children().addClass('glyphicon-chevron-down')
+    $('#'+this.name).show()
+  }
+})</script><div><b>Still need help? </b><div style="text-indent:10px;"><a href="#">Contact us</a></div></div></div><div class="article item lap_nine_columns"><div class="breadcrumbs"><a href="/articles/dashboard">Dashboard</a> &rarr; <a href="/articles/dashboard/apps.html">Apps</a> &rarr; </div><h2 id="installing-an-app">Installing an app</h2>
+<p>To install an app, navigate to the &quot;App store&quot; section of the dashboard. Select the app you would like to install and then click the &quot;free trial&quot; button at the bottom of the app page. You will then be prompted to install the app you selected.</p>
+<p><img src="/articles/dashboard/images/screenshot_install_app.png" alt="install app"></p>
+<h2 id="changing-an-app-s-url-or-slug">Changing an app&#39;s URL or slug</h2>
+<p>To change an app&#39;s URL (slug), click the &quot;Admin&quot; link to the right of the app listing on the &quot;Dashboard&quot; page. Then, click the &quot;Change&quot; button next to the URL. Enter a new slug, and then click the &quot;Save&quot; button. Note that your slug must be unique, and that if it is already taken you will have to find another one.</p>
+<h2 id="adding-or-changing-your-plan">Adding or changing your plan</h2>
+<p>From the &quot;Dashboard&quot; section, select the app you would like to configure. Then, click &quot;Change plan&quot; under &quot;Plan&quot; to add or change a plan. See the <a href="/articles/dashboard/organization_settings.md">organization settings article</a> for more information on billing and subscription.</p>
+<h2 id="removing-an-app">Removing an app</h2>
+<p>To remove an app, click the &quot;Disable&quot; link to the right of the app on the &quot;Dashboard&quot; page.</p>
+</div></div><script>document.getElementById('choose-app').onchange = function() {
+  window.location.href = '/' + this.value
+}</script></div></body></html>
