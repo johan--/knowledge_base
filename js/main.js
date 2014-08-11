@@ -37,7 +37,7 @@
             }
           }
           results = results.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
-          _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + results + " </p> " + result.body + " </div>"));
+          _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + results + " </p> </div>"));
         }
         return _results;
       });
