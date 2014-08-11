@@ -20,7 +20,7 @@
       return $.get("http://dobt-knowledge-base-search.herokuapp.com/search", {
         q: query
       }, function(data) {
-        var i, r, re, re_left, re_right, result, results, _i, _j, _len, _len1, _ref, _results;
+        var i, r, re, re_left, re_right, result, result_match, results, _i, _j, _len, _len1, _results;
         $(".search-results").text("");
         if (data.length < 1) {
           return $(".search-results").append("<h4>No results...</h4>");
@@ -32,11 +32,13 @@
             re_left = "(\\S+\\s){0,8}";
             re_right = "(\\S*\\s\\S+){0,8}";
             re = new RegExp(re_left + query + re_right, 'ig');
-            _ref = result.body.match(re);
-            for (i = _j = 0, _len1 = _ref.length; _j < _len1; i = ++_j) {
-              r = _ref[i];
-              if (i < 10) {
-                results = results + r + "... ";
+            result_match = result.body.match(re);
+            if (result_match) {
+              for (i = _j = 0, _len1 = result_match.length; _j < _len1; i = ++_j) {
+                r = result_match[i];
+                if (i < 10) {
+                  results = results + r + "... ";
+                }
               }
             }
             results = results.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
