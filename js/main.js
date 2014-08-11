@@ -20,26 +20,28 @@
       return $.get("http://dobt-knowledge-base-search.herokuapp.com/search", {
         q: query
       }, function(data) {
-        var i, r, re, re_left, re_right, result, results, _i, _j, _len, _len1, _ref, _results;
+        var i, r, re, re_left, re_right, result, results, _i, _j, _len, _len1, _ref;
         $(".search-results").text("");
-        _results = [];
-        for (_i = 0, _len = data.length; _i < _len; _i++) {
-          result = data[_i];
-          results = "...";
-          re_left = "(\\S+\\s){0,8}";
-          re_right = "(\\S*\\s\\S+){0,8}";
-          re = new RegExp(re_left + query + re_right, 'ig');
-          _ref = result.body.match(re);
-          for (i = _j = 0, _len1 = _ref.length; _j < _len1; i = ++_j) {
-            r = _ref[i];
-            if (i < 10) {
-              results = results + r + "... ";
+        if (data.length < 1) {
+          return results = "No results...";
+        } else {
+          for (_i = 0, _len = data.length; _i < _len; _i++) {
+            result = data[_i];
+            results = "...";
+            re_left = "(\\S+\\s){0,8}";
+            re_right = "(\\S*\\s\\S+){0,8}";
+            re = new RegExp(re_left + query + re_right, 'ig');
+            _ref = result.body.match(re);
+            for (i = _j = 0, _len1 = _ref.length; _j < _len1; i = ++_j) {
+              r = _ref[i];
+              if (i < 10) {
+                results = results + r + "... ";
+              }
             }
+            results = results.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
           }
-          results = results.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
-          _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + results + " </p> </div>"));
+          return $(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + results + " </p> </div>");
         }
-        return _results;
       });
     }
   });
