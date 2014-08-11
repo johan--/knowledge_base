@@ -25,7 +25,7 @@
 .navbar-form input {
   margin-right: 30px;
 }
-.home {
+.main {
   background: #f3f6f8;
   padding: 20px 10px;
 }
@@ -46,6 +46,11 @@
   width: 400px;
   height: 40px;
   margin: 0px auto;
+}
+.search-results {
+  margin: 0px auto;
+  margin-top: 20px;
+  padding: 10px;
 }
 .toc,
 .toc ul {
