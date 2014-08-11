@@ -52,6 +52,12 @@
   margin-top: 20px;
   padding: 10px;
 }
+.highlight {
+  background: #ff0;
+}
+.result-body {
+  padding-left: 10px;
+}
 .toc,
 .toc ul {
   list-style-type: none;
