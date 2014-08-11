@@ -15,9 +15,9 @@
     });
     if ($(".search-results")[0]) {
       url = "http://dobt-knowledge-base-search.herokuapp.com/search";
-      $(".search-results").text("...");
       query = window.location.search.slice(3);
       $(".centersearch").attr('value', query);
+      $(".search-results").text("...");
       return $.get(url, {
         q: query
       }, function(data) {
