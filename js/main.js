@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var query;
+    var query, url;
     $('#choose-app').on('change', function() {
       return window.location.href = '/' + $(this).val();
     });
@@ -14,13 +14,14 @@
       return $section[willHide ? 'hide' : 'show']();
     });
     if ($(".search-results")[0]) {
+      url = "http://dobt-knowledge-base-search.herokuapp.com/search";
+      $(".search-results").text("...");
       query = window.location.search.slice(3);
       $(".centersearch").attr('value', query);
-      $(".search-results").text("...");
-      return $.get("http://dobt-knowledge-base-search.herokuapp.com/search", {
+      return $.get(url, {
         q: query
       }, function(data) {
-        var i, r, re, re_left, re_right, result, result_match, results, _i, _j, _len, _len1, _results;
+        var display, r, re, re_left, re_right, result, result_match, _i, _j, _len, _len1, _ref, _results;
         $(".search-results").text("");
         if (data.length < 1) {
           return $(".search-results").append("<h4>No results...</h4>");
@@ -28,21 +29,20 @@
           _results = [];
           for (_i = 0, _len = data.length; _i < _len; _i++) {
             result = data[_i];
-            results = "...";
+            display = "...";
             re_left = "(\\S+\\s){0,8}";
             re_right = "(\\S*\\s\\S+){0,8}";
             re = new RegExp(re_left + query + re_right, 'ig');
             result_match = result.body.match(re);
             if (result_match) {
-              for (i = _j = 0, _len1 = result_match.length; _j < _len1; i = ++_j) {
-                r = result_match[i];
-                if (i < 10) {
-                  results = results + r + "... ";
-                }
+              _ref = result_match.slice(0, 10);
+              for (_j = 0, _len1 = _ref.length; _j < _len1; _j++) {
+                r = _ref[_j];
+                display = display + r + "... ";
               }
             }
-            results = results.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
-            _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + results + " </p> </div>"));
+            display = display.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
+            _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + display + " </p> </div>"));
           }
           return _results;
         }
