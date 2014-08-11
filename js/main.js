@@ -20,11 +20,12 @@
       return $.get("http://dobt-knowledge-base-search.herokuapp.com/search", {
         q: query
       }, function(data) {
-        var i, r, re, re_left, re_right, result, results, _i, _j, _len, _len1, _ref;
+        var i, r, re, re_left, re_right, result, results, _i, _j, _len, _len1, _ref, _results;
         $(".search-results").text("");
         if (data.length < 1) {
-          return results = "No results...";
+          return $(".search-results").append("<h4>No results...</h4>");
         } else {
+          _results = [];
           for (_i = 0, _len = data.length; _i < _len; _i++) {
             result = data[_i];
             results = "...";
@@ -39,8 +40,9 @@
               }
             }
             results = results.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
+            _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + results + " </p> </div>"));
           }
-          return $(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + results + " </p> </div>");
+          return _results;
         }
       });
     }
