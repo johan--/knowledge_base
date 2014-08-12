@@ -4,6 +4,9 @@
 input[type="search"] {
   padding-left: 10px;
 }
+.fa {
+  vertical-align: baseline;
+}
 .navbar {
   padding: 10px 50px;
   line-height: 75px;
@@ -97,9 +100,6 @@ input[type="search"] {
 .toggle_toc {
   color: #000;
 }
-.still_need_help_container {
-  margin-top: 10px;
-}
 .left_nav {
   background: #f3f6f8;
   padding: 2rem 2rem 2rem 4rem;
@@ -114,6 +114,7 @@ input[type="search"] {
   color: #000;
   display: block;
   width: 100%;
+  text-decoration: none;
 }
 .left_nav p {
   padding-bottom: 15px;
@@ -143,8 +144,21 @@ input[type="search"] {
   color: #21bedb;
   font-weight: bold;
 }
+.left_nav .still_need_help_container {
+  background: #eaeef1;
+  padding: 10px;
+  margin-top: 15px;
+}
 .left_nav .still_need_help {
+  margin-top: 10px;
   text-indent: 10px;
+}
+.left_nav .still_need_help a {
+  background: #3bccaf;
+  padding: 10px 7px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
 }
 .article {
   background: #fff;
