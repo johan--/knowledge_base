@@ -34,11 +34,11 @@
       query = decodeURIComponent(window.location.search.slice(3).replace(/\+/g, "%20"));
       $(".centersearch").attr('value', query);
       $(".search-results").text("...");
-      return $.get(url, {
+      return $.getJSON(url, {
         q: query
       }, function(data) {
         var display, r, re, re_left, re_right, result, result_match, _i, _j, _len, _len1, _ref, _results;
-        $(".search-results").text("");
+        $(".search-results").html('');
         if (data.length < 1) {
           return $(".search-results").append("<h4>No results...</h4>");
         } else {
