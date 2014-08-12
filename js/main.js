@@ -1,6 +1,8 @@
 (function() {
   $(function() {
-    var query, url;
+    var ourEmail, query, url;
+    ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
+    $('#dynamic-email').attr('href', "mailto:" + ourEmail).append(ourEmail);
     $.getJSON('https://c73bgtwgrhvh.statuspage.io/api/v1/status.json', function(data) {
       var _ref;
       if (((_ref = data.status) != null ? _ref.indicator : void 0) == null) {
