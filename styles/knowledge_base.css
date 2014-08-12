@@ -29,11 +29,28 @@
   background: #f3f6f8;
   padding: 20px 10px;
 }
-.listings a hover {
+.listings {
+  margin-top: 20px;
+  text-align: center;
+}
+.listings a {
+  color: #21bedb;
+}
+.toc_section {
+  text-align: left;
+}
+.toc_section h3 {
+  font-size: 120%;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.toc_section h3 a {
+  color: #000;
   text-decoration: none;
 }
-.listings a h3 {
-  font-size: 120%;
+.toc_section h4 {
+  font-size: 90%;
   text-transform: uppercase;
 }
 .landing {
@@ -41,6 +58,7 @@
 }
 .landing h1 {
   font-weight: normal;
+  margin-bottom: 20px;
 }
 .centersearch {
   width: 400px;
@@ -58,14 +76,12 @@
 .result-body {
   padding-left: 10px;
 }
-.toc,
-.toc ul {
+.toc_section ul {
   list-style-type: none;
-  padding-left: 20px;
+  padding-left: 0px;
 }
-.toc li,
-.toc ul li {
-  margin-top: 5px;
+.toc_section ul li {
+  margin-top: 3px;
 }
 .toggle_toc {
   color: #000;
@@ -79,7 +95,7 @@
   word-wrap: break-word;
 }
 .left_nav ul {
-  padding-left: 5px;
+  padding-left: 15px;
 }
 .left_nav h4 {
   padding-top: 10px;
