@@ -164,7 +164,25 @@ input[type="search"] {
   background: #fff;
   padding-bottom: 20px;
 }
+.article_toc {
+  margin-top: 25px;
+}
+.article_toc h3 {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 120%;
+}
+.article_toc ol {
+  padding-left: 0px;
+  list-style-position: inside;
+  color: #21bedb;
+}
+.article_toc ol a {
+  color: #21bedb;
+  text-decoration: none;
+}
 .breadcrumbs {
+  color: #21bedb;
   margin-top: 10px;
   margin-bottom: 10px;
 }
