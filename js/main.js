@@ -1,6 +1,20 @@
 (function() {
   $(function() {
     var query, url;
+    $.getJSON('https://c73bgtwgrhvh.statuspage.io/api/v1/status.json', function(data) {
+      var _ref;
+      if (((_ref = data.status) != null ? _ref.indicator : void 0) == null) {
+        return;
+      }
+      $('.status.loading').hide();
+      if (data.status.indicator === 'none') {
+        return $('.status.up').show();
+      } else if (data.status.indicator === 'minor') {
+        return $('.status.partial').show();
+      } else if ((data.status.indicator === 'major') || (data.status.indicator === 'critical')) {
+        return $('.status.major').show();
+      }
+    });
     $('#choose-app').on('change', function() {
       return window.location.href = '/' + $(this).val();
     });
@@ -8,9 +22,9 @@
       var $icon, $section, willHide;
       $icon = $(this).find('.fa');
       $section = $("#" + ($(this).attr('name')));
-      willHide = $icon.hasClass('fa-toggle-down');
-      $icon.removeClass('fa-toggle-down fa-toggle-up');
-      $icon.addClass(willHide ? 'fa-toggle-up' : 'fa-toggle-down');
+      willHide = $icon.hasClass('fa-chevron-down');
+      $icon.removeClass('fa-chevron-down fa-chevron-up');
+      $icon.addClass(willHide ? 'fa-chevron-up' : 'fa-chevron-down');
       return $section[willHide ? 'hide' : 'show']();
     });
     if ($(".search-results")[0]) {

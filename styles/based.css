@@ -250,10 +250,6 @@ sub {
   background-color: #ffd119;
   color: #333;
 }
-.status {
-  font-size: 0.9rem;
-  font-weight: 600;
-}
 .dropdown_menu a:hover .status {
   color: #fff !important;
 }

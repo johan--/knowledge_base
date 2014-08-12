@@ -1,17 +1,21 @@
 .container {
   border-top: 1px solid #f3f6f8;
 }
+input[type="search"] {
+  padding-left: 10px;
+}
 .navbar {
   padding: 10px 50px;
   line-height: 75px;
 }
 .navbar a {
   color: #000;
+  text-decoration: none;
 }
 .navbar-left img {
   height: 75px;
 }
-.navbar-left span {
+.navbar-left .brand {
   padding-left: 10px;
 }
 .navbar-right {
@@ -24,6 +28,10 @@
 }
 .navbar-form input {
   margin-right: 30px;
+  height: 25px;
+}
+.gray {
+  color: #6f7277;
 }
 .main {
   background: #f3f6f8;
@@ -44,6 +52,9 @@
   font-weight: normal;
   text-transform: uppercase;
   margin-bottom: 20px;
+}
+.toc_section a {
+  text-decoration: none !important;
 }
 .toc_section h3 a {
   color: #000;
@@ -80,15 +91,29 @@
   list-style-type: none;
   padding-left: 0px;
 }
-.toc_section ul li {
+.toc_section li {
   margin-top: 3px;
 }
 .toggle_toc {
   color: #000;
 }
+.still_need_help_container {
+  margin-top: 10px;
+}
 .left_nav {
   background: #f3f6f8;
   padding: 2rem 2rem 2rem 4rem;
+}
+.left_nav #choose-app {
+  height: 35px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.left_nav a {
+  color: #000;
+  display: block;
+  width: 100%;
 }
 .left_nav p {
   padding-bottom: 15px;
@@ -98,12 +123,23 @@
   padding-left: 15px;
 }
 .left_nav h4 {
-  padding-top: 10px;
+  padding: 10px 7px;
   font-weight: normal;
   text-transform: uppercase;
   font-size: 100%;
+  margin-bottom: 0px;
+}
+.left_nav h4:hover {
+  background: #3bccaf;
+  color: #fff;
+}
+.left_nav .fa-chevron-down,
+.left_nav .fa-chevron-up {
+  font-size: 80%;
+  float: right;
 }
 .left_nav .current_article {
+  color: #21bedb;
   font-weight: bold;
 }
 .left_nav .still_need_help {
@@ -115,4 +151,63 @@
 .breadcrumbs {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+footer {
+  background: #2e2e2e;
+  padding: 67px 20px 54px;
+  text-align: center;
+}
+footer .item {
+  color: #fff;
+  text-align: left;
+}
+footer h2 {
+  color: #fff;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 18px;
+  margin-bottom: 26px;
+}
+footer ul {
+  list-style-type: none;
+  padding: 0px;
+}
+footer ul li {
+  margin-bottom: 15px;
+}
+footer ul li a {
+  color: #fff;
+  font-size: 16px;
+  display: inline-block;
+  text-decoration: none !important;
+}
+footer ul li a i {
+  display: inline-block;
+  width: 30px;
+  font-size: 16px;
+  text-align: center;
+}
+footer ul li a:hover {
+  color: #21bedb;
+}
+footer ul li a:hover.fb {
+  color: #2d5194;
+}
+footer ul li a:hover.gp {
+  color: #db4738;
+}
+footer ul li a:hover.tw {
+  color: #5caeeb;
+}
+footer ul li .status.up i {
+  color: #008000;
+}
+footer ul li .status.partial i {
+  color: #ff0;
+}
+footer ul li .status.major i {
+  color: #f00;
+}
+footer ul li .service-status {
+  padding: 0;
 }
