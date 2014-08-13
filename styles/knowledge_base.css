@@ -181,6 +181,13 @@ input[type="search"] {
   width: 100%;
   text-decoration: none;
 }
+.left_nav a.current_article,
+.left_nav a:hover {
+  color: #21bedb;
+}
+.left_nav a.current_article {
+  font-weight: bold;
+}
 .left_nav p {
   padding-bottom: 15px;
   word-wrap: break-word;
@@ -208,10 +215,6 @@ input[type="search"] {
   position: absolute;
   top: 12px;
   right: 10px;
-}
-.left_nav .current_article {
-  color: #21bedb;
-  font-weight: bold;
 }
 .left_nav .still_need_help_container {
   background: #eaeef1;
