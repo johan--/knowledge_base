@@ -323,6 +323,14 @@ input[type="search"] {
 .article_toc ol a {
   color: #21bedb;
 }
+.choose_article {
+  margin-top: -15px;
+  font-size: 50px;
+}
+.choose_article span {
+  vertical-align: middle;
+  font-size: 16px;
+}
 footer {
   background: #2e2e2e;
   text-align: center;
