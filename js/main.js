@@ -1,10 +1,14 @@
 (function() {
+  var SEARCH_ENDPOINT;
+
+  SEARCH_ENDPOINT = "http://dobt-knowledge-base-search.herokuapp.com/search";
+
   $(document).on("click", "[data-toggle-class]", function() {
     return $($(this).data('target')).toggleClass($(this).data('toggle-class'));
   });
 
   $(function() {
-    var h, ourEmail, query, url, _i, _len, _ref;
+    var h, ourEmail, query, _i, _len, _ref;
     ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
     $('#dynamic-email').attr('href', "mailto:" + ourEmail).append(ourEmail);
     _ref = $(".article_body > :header");
@@ -50,14 +54,13 @@
       return $section[willHide ? 'hide' : 'show']();
     });
     if ($(".search-results")[0]) {
-      url = "http://dobt-knowledge-base-search.herokuapp.com/search";
       query = $.url().param('q');
       $(".centersearch-input").attr('value', query);
       $(".search-results").text("...");
-      return $.getJSON(url, {
+      return $.getJSON(SEARCH_ENDPOINT, {
         q: query
       }, function(data) {
-        var display, r, re, re_left, re_right, result, result_match, _j, _k, _len1, _len2, _ref1, _results;
+        var result, _j, _len1, _results;
         $(".search-results").html('');
         if (data.length < 1) {
           return $(".search-results").append("<h4>No results...</h4>");
@@ -65,22 +68,7 @@
           _results = [];
           for (_j = 0, _len1 = data.length; _j < _len1; _j++) {
             result = data[_j];
-            display = "...";
-            re_left = "(\\S+\\s){0,8}";
-            re_right = "(\\S*\\s\\S+){0,8}";
-            re = new RegExp(re_left + query + re_right, 'ig');
-            result_match = result.body.match(re);
-            if (result_match) {
-              _ref1 = result_match.slice(0, 10);
-              for (_k = 0, _len2 = _ref1.length; _k < _len2; _k++) {
-                r = _ref1[_k];
-                display = display + r + "... ";
-              }
-            } else {
-              display = result.body.match(/([^\.]+\.){0,3}/)[0] + '..';
-            }
-            display = display.replace(new RegExp(query, 'ig'), "<span class='highlight'>" + query + "</span>");
-            _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + display + " </p> </div>"));
+            _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + result.excerpt + " </p> </div>"));
           }
           return _results;
         }
