@@ -83,24 +83,37 @@ input[type="search"] {
   margin-top: 20px;
   text-align: center;
 }
+.listings .item {
+  text-align: left;
+}
 .listings a {
   color: #21bedb;
 }
-.toc_section {
-  text-align: left;
-}
-.toc_section h3 {
+.listings h3 {
   font-size: 1.2rem;
   font-weight: normal;
   text-transform: uppercase;
-  margin-bottom: 20px;
 }
-.toc_section a {
-  text-decoration: none !important;
-}
-.toc_section h3 a {
+.listings h3 a {
   color: #000;
   text-decoration: none;
+}
+.listings h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  padding: 10px 0px;
+  margin-bottom: 0px;
+}
+.listings ul {
+  list-style: none;
+  padding: 0.25rem 0 1rem;
+}
+.listings ul li {
+  margin: 0.5rem 0 0;
+}
+.toc_section {
+  text-align: left;
 }
 .toc_section h4 {
   font-size: 1rem;
@@ -324,12 +337,12 @@ input[type="search"] {
   color: #21bedb;
 }
 .choose_article {
-  margin-top: -15px;
-  font-size: 50px;
+  margin-top: -1rem;
+  font-size: 4rem;
 }
 .choose_article span {
   vertical-align: middle;
-  font-size: 16px;
+  font-size: 1rem;
 }
 footer {
   background: #2e2e2e;
