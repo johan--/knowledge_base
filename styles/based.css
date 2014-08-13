@@ -1522,6 +1522,15 @@ span.dropdown {
   background: #e3e3e3;
   color: #333;
 }
+.button.teal {
+  background: #3bccaf;
+  color: #fff;
+  border: 1px solid #31bca0;
+}
+.button.teal:hover {
+  background: #31bca0;
+  color: #fff;
+}
 .button:hover {
   background: #ccc;
   text-decoration: none;
