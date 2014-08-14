@@ -2628,6 +2628,9 @@ input[type="search"] {
   padding-right: 8px;
   vertical-align: middle;
 }
+.article .anchor :hover {
+  color: #000;
+}
 .article .anchor i {
   font-size: 65%;
   color: #808080;
