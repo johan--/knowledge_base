@@ -9,6 +9,7 @@
 
   $(function() {
     var h, ourEmail, query, _i, _len, _ref;
+    $('input, textarea').placeholder();
     ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
     $('#dynamic-email').attr('href', "mailto:" + ourEmail).append(ourEmail);
     _ref = $(".article_body > :header");
@@ -55,16 +56,16 @@
     });
     if ($(".search-results")[0]) {
       query = $.url().param('q');
-      $(".centersearch-input").attr('value', query);
-      $(".search-results").text("...");
+      $(".centersearch-input").val(query);
       return $.getJSON(SEARCH_ENDPOINT, {
         q: query
       }, function(data) {
         var result, _j, _len1, _results;
-        $(".search-results").html('');
+        $(".search-results-loading").remove();
         if (data.length < 1) {
-          return $(".search-results").append("<h4>No results...</h4>");
+          return $(".no-search-results").show();
         } else {
+          $('.results-count').show().find('h3').text("" + data.length + " search result" + (data.length === 1 ? '' : 's'));
           _results = [];
           for (_j = 0, _len1 = data.length; _j < _len1; _j++) {
             result = data[_j];
