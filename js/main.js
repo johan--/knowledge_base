@@ -20,7 +20,7 @@
       }, function() {
         return $("#anchor-" + this.id).hide();
       });
-      $(h).prepend("<a class='anchor' id='anchor-" + h.id + "' href='#" + h.id + "'><i class='fa fa-link'></a>");
+      $(h).prepend("<a class='anchor' id='anchor-" + h.id + "' href='#" + h.id + "'><i class='fa fa-link'></i></a>");
       $("#anchor-" + h.id).hide();
     }
     $.getJSON('https://c73bgtwgrhvh.statuspage.io/api/v1/status.json', function(data) {
