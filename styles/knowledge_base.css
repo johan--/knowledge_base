@@ -2460,7 +2460,7 @@ input[type="search"] {
   text-align: center;
 }
 .no-search-results h3 {
-  line-height: 100px;
+  line-height: 60px;
   color: #777;
 }
 .results-count {
