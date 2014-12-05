@@ -2621,6 +2621,10 @@ input[type="search"] {
   font-weight: 500;
   font-size: 1.3rem;
 }
+.article img {
+  padding: 5px;
+  border: 5px solid #f4f5f7;
+}
 .article .anchor {
   position: absolute;
   margin-left: -40px;
