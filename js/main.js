@@ -65,7 +65,7 @@
         if (data.length < 1) {
           return $(".no-search-results").show();
         } else {
-          $('.results-count').show().find('h3').text("" + data.length + " search result" + (data.length === 1 ? '' : 's'));
+          $('.results-count').show().find('h3').text(data.length + " search result" + (data.length === 1 ? '' : 's'));
           _results = [];
           for (_j = 0, _len1 = data.length; _j < _len1; _j++) {
             result = data[_j];
