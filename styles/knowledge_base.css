@@ -2572,7 +2572,7 @@ input[type="search"] {
     display: block;
   }
   .article-wrapper .article {
-    width: 100%;
+    max-width: 52rem;
     height: 100%;
   }
 }
