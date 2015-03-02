@@ -1,6 +1,28 @@
 (function() {
   var SEARCH_ENDPOINT;
 
+  $.fn.extend({
+    flashPlaceholder: function(text, timeout) {
+      return this.each(function() {
+        var initialPlaceholder;
+        initialPlaceholder = $(this).attr('placeholder');
+        $(this).val('');
+        $(this).attr('placeholder', text);
+        if (!$(this).data('original-placeholder')) {
+          $(this).data('original-placeholder', initialPlaceholder);
+        }
+        if (timeout) {
+          return setTimeout((function(_this) {
+            return function() {
+              $(_this).attr('placeholder', $(_this).data('original-placeholder'));
+              return $(_this).data('original-placeholder', '');
+            };
+          })(this), timeout);
+        }
+      });
+    }
+  });
+
   SEARCH_ENDPOINT = "http://dobt-knowledge-base-search.herokuapp.com/search";
 
   $(document).on("click", "[data-toggle-class]", function() {
@@ -11,7 +33,7 @@
     var h, ourEmail, query, _i, _len, _ref;
     $('input, textarea').placeholder();
     ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
-    $('#dynamic-email').attr('href', "mailto:" + ourEmail).append(ourEmail);
+    $('.dynamic_email').attr('href', "mailto:" + ourEmail).append(ourEmail);
     _ref = $(".article_body > :header");
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       h = _ref[_i];
@@ -57,7 +79,7 @@
     if ($(".search-results")[0]) {
       query = $.url().param('q');
       $(".centersearch-input").val(query);
-      return $.getJSON(SEARCH_ENDPOINT, {
+      $.getJSON(SEARCH_ENDPOINT, {
         q: query
       }, function(data) {
         var result, _j, _len1, _results;
@@ -75,6 +97,50 @@
         }
       });
     }
+    return $.getJSON('https://c73bgtwgrhvh.statuspage.io/api/v1/status.json', function(data) {
+      var newClass, _ref1;
+      if (((_ref1 = data.status) != null ? _ref1.indicator : void 0) == null) {
+        return;
+      }
+      newClass = (function() {
+        switch (data.status.indicator) {
+          case 'none':
+            return 'is_up';
+          case 'minor':
+            return 'is_partial';
+          case 'major':
+          case 'critical':
+            return 'is_down';
+        }
+      })();
+      return $('.footer_status').addClass(newClass);
+    });
+  });
+
+  $(document).on('submit', '.newsletter_form', function(e) {
+    var $input;
+    e.preventDefault();
+    $input = $(this).find('input[type=email]');
+    if (!$input.val()) {
+      return;
+    }
+    $.ajax({
+      url: 'http://dobt.createsend.com/t/t/s/dijhkj/?callback=?',
+      type: 'get',
+      dataType: 'json',
+      data: {
+        'cm-dijhkj-dijhkj': $input.val()
+      },
+      success: function(data) {
+        if (data.Status === 400) {
+          return $input.flashPlaceholder('Whoops, an error occurred!', 2000);
+        } else {
+          return $input.flashPlaceholder('Thanks!', 2000);
+        }
+      }
+    });
+    $input.flashPlaceholder('Subscribing...');
+    return $input.blur();
   });
 
 }).call(this);
