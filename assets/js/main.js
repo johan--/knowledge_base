@@ -30,13 +30,13 @@
   });
 
   $(function() {
-    var h, i, len, ourEmail, query, ref;
+    var h, ourEmail, query, _i, _len, _ref;
     $('input, textarea').placeholder();
     ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
     $('.dynamic_email').attr('href', "mailto:" + ourEmail).append(ourEmail);
-    ref = $(".article_body > :header");
-    for (i = 0, len = ref.length; i < len; i++) {
-      h = ref[i];
+    _ref = $(".article_body > :header");
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      h = _ref[_i];
       $(h).hover(function() {
         return $("#anchor-" + this.id).show();
       }, function() {
@@ -46,8 +46,8 @@
       $("#anchor-" + h.id).hide();
     }
     $.getJSON('https://c73bgtwgrhvh.statuspage.io/api/v1/status.json', function(data) {
-      var ref1;
-      if (((ref1 = data.status) != null ? ref1.indicator : void 0) == null) {
+      var _ref1;
+      if (((_ref1 = data.status) != null ? _ref1.indicator : void 0) == null) {
         return;
       }
       $('.status.loading').hide();
@@ -86,24 +86,24 @@
       $.getJSON(SEARCH_ENDPOINT, {
         q: query
       }, function(data) {
-        var j, len1, result, results;
+        var result, _j, _len1, _results;
         $(".search-results-loading").remove();
         if (data.length < 1) {
           return $(".no-search-results").show();
         } else {
-          $('.results-count').show().find('h3').text(data.length + " search result" + (data.length === 1 ? '' : 's'));
-          results = [];
-          for (j = 0, len1 = data.length; j < len1; j++) {
-            result = data[j];
-            results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + result.excerpt + " </p> </div>"));
+          $('.results-count').show().find('h3').text("" + data.length + " search result" + (data.length === 1 ? '' : 's'));
+          _results = [];
+          for (_j = 0, _len1 = data.length; _j < _len1; _j++) {
+            result = data[_j];
+            _results.push($(".search-results").append("<div class='result'> <h4><a href='" + result.url + "'>" + result.title + "</a></h4> <p class='result-body'> " + result.excerpt + " </p> </div>"));
           }
-          return results;
+          return _results;
         }
       });
     }
     return $.getJSON('https://c73bgtwgrhvh.statuspage.io/api/v1/status.json', function(data) {
-      var newClass, ref1;
-      if (((ref1 = data.status) != null ? ref1.indicator : void 0) == null) {
+      var newClass, _ref1;
+      if (((_ref1 = data.status) != null ? _ref1.indicator : void 0) == null) {
         return;
       }
       newClass = (function() {
