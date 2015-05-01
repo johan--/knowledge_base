@@ -2,6 +2,17 @@
   var SEARCH_ENDPOINT;
 
   $.fn.extend({
+    styledControls: function() {
+      return $(this).find('label.control').each(function() {
+        if (!this.hasStyledControls) {
+          this.hasStyledControls = true;
+          return $(this).find('input').after("<span class='control_styled' />");
+        }
+      });
+    }
+  });
+
+  $.fn.extend({
     flashPlaceholder: function(text, timeout) {
       return this.each(function() {
         var initialPlaceholder;
@@ -31,6 +42,7 @@
 
   $(function() {
     var h, i, len, ourEmail, query, ref;
+    $('body').styledControls();
     $('input, textarea').placeholder();
     ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
     $('.dynamic_email').attr('href', "mailto:" + ourEmail).append(ourEmail);
