@@ -6,9 +6,7 @@
   $(function() {
     var h, i, len, ourEmail, query, ref;
     $('body').styledControls();
-    $('body').styledSelect({
-      width: 'full'
-    });
+    $('body').styledSelect();
     $('input, textarea').placeholder();
     ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
     $('.dynamic_email').attr('href', "mailto:" + ourEmail).append(ourEmail);
