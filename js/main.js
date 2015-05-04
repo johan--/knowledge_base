@@ -35,6 +35,7 @@
         return $('.status.major').show();
       }
     });
+    $('.embedded_video_wrapper').fitVids();
     $('#choose-app').on('change', function() {
       return window.location.href = '/' + $(this).val();
     });
