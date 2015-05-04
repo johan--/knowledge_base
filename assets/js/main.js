@@ -1,48 +1,14 @@
 (function() {
   var SEARCH_ENDPOINT;
 
-  $.fn.extend({
-    styledControls: function() {
-      return $(this).find('label.control').each(function() {
-        if (!this.hasStyledControls) {
-          this.hasStyledControls = true;
-          return $(this).find('input').after("<span class='control_styled' />");
-        }
-      });
-    }
-  });
-
-  $.fn.extend({
-    flashPlaceholder: function(text, timeout) {
-      return this.each(function() {
-        var initialPlaceholder;
-        initialPlaceholder = $(this).attr('placeholder');
-        $(this).val('');
-        $(this).attr('placeholder', text);
-        if (!$(this).data('original-placeholder')) {
-          $(this).data('original-placeholder', initialPlaceholder);
-        }
-        if (timeout) {
-          return setTimeout((function(_this) {
-            return function() {
-              $(_this).attr('placeholder', $(_this).data('original-placeholder'));
-              return $(_this).data('original-placeholder', '');
-            };
-          })(this), timeout);
-        }
-      });
-    }
-  });
-
   SEARCH_ENDPOINT = "http://dobt-knowledge-base-search.herokuapp.com/search";
-
-  $(document).on("click", "[data-toggle-class]", function() {
-    return $($(this).data('target')).toggleClass($(this).data('toggle-class'));
-  });
 
   $(function() {
     var h, i, len, ourEmail, query, ref;
     $('body').styledControls();
+    $('body').styledSelect({
+      width: 'full'
+    });
     $('input, textarea').placeholder();
     ourEmail = ['hello', '@', 'dobt', '.', 'co'].join('');
     $('.dynamic_email').attr('href', "mailto:" + ourEmail).append(ourEmail);
@@ -95,7 +61,7 @@
         return $(".no-query").show();
       }
       $(".centersearch-input").val(query);
-      $.getJSON(SEARCH_ENDPOINT, {
+      return $.getJSON(SEARCH_ENDPOINT, {
         q: query
       }, function(data) {
         var j, len1, result, results;
@@ -113,50 +79,6 @@
         }
       });
     }
-    return $.getJSON('https://c73bgtwgrhvh.statuspage.io/api/v1/status.json', function(data) {
-      var newClass, ref1;
-      if (((ref1 = data.status) != null ? ref1.indicator : void 0) == null) {
-        return;
-      }
-      newClass = (function() {
-        switch (data.status.indicator) {
-          case 'none':
-            return 'is_up';
-          case 'minor':
-            return 'is_partial';
-          case 'major':
-          case 'critical':
-            return 'is_down';
-        }
-      })();
-      return $('.footer_status').addClass(newClass);
-    });
-  });
-
-  $(document).on('submit', '.newsletter_form', function(e) {
-    var $input;
-    e.preventDefault();
-    $input = $(this).find('input[type=email]');
-    if (!$input.val()) {
-      return;
-    }
-    $.ajax({
-      url: 'http://dobt.createsend.com/t/t/s/dijhkj/?callback=?',
-      type: 'get',
-      dataType: 'json',
-      data: {
-        'cm-dijhkj-dijhkj': $input.val()
-      },
-      success: function(data) {
-        if (data.Status === 400) {
-          return $input.flashPlaceholder('Whoops, an error occurred!', 2000);
-        } else {
-          return $input.flashPlaceholder('Thanks!', 2000);
-        }
-      }
-    });
-    $input.flashPlaceholder('Subscribing...');
-    return $input.blur();
   });
 
 }).call(this);
