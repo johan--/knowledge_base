@@ -49,8 +49,8 @@
       if (!willHide) {
         $h4.addClass('active');
       }
-      $icon.removeClass('fa-chevron-down fa-chevron-up');
-      $icon.addClass(willHide ? 'fa-chevron-up' : 'fa-chevron-down');
+      $icon.removeClass('fa-chevron-down fa-chevron-right');
+      $icon.addClass(willHide ? 'fa-chevron-right' : 'fa-chevron-down');
       return $section[willHide ? 'hide' : 'show']();
     });
     if ($(".search-results")[0]) {

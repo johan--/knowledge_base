@@ -16,7 +16,7 @@
             return 'is_down';
         }
       })();
-      return $('.footer_status').addClass(newClass);
+      return $('.public_footer_status').addClass(newClass);
     });
   });
 
