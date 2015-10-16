@@ -35,7 +35,7 @@
         return $('.status.major').show();
       }
     });
-    $('.embedded_video_wrapper').fitVids();
+    $('.article_body').fitVids();
     $('#choose-app').on('change', function() {
       return window.location.href = '/' + $(this).val();
     });
